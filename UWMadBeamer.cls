@@ -39,11 +39,16 @@
 \RequirePackage{lmodern}
 \RequirePackage{microtype}
 \RequirePackage{graphicx}
+\RequirePackage{xparse}
 %
 %   Define the layout and color themes
 \usecolortheme{UWMad}
 \hypersetup{colorlinks,linkcolor=}
-\hypersetup{linkcolor=UWMadRed,urlcolor=UWMadRed}
+\let\HrefOld\href
+\DeclareDocumentCommand \href { m m } {
+    \textcolor{UWMadRed}{\HrefOld{#1}{#2}}
+}
+\hypersetup{urlcolor=UWMadRed}
 \useoutertheme{default}
 \useinnertheme{circles}
 %
